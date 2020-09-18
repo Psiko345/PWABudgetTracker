@@ -1,7 +1,7 @@
 {
-  "name": "budget-app",
+  "name": "pwa-budget-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A budget tracking app that works both on/offline",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
