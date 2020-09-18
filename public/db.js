@@ -1,0 +1,1 @@
+const request = window.indexedDB.open("budgetDatabase", 1);
