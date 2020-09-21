@@ -21,3 +21,23 @@ self.addEventListener("install", event => {
     );
 });
 
+self.addEventListener("activate", event => {
+    const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+    event.waitUntil(
+        caches
+            .keys()
+            .then(cacheNames => {
+                return cacheNames.filter(
+                    cacheName => !currentCaches.includes(cacheName)
+                )
+            })
+            .then(oldCaches => {
+                return Promise.all(
+                    oldCaches.map(oldCaches => {
+                        return caches.delete(oldCaches);
+                    })
+                )
+            })
+            .then(() => self.clients.claim())
+    )
+})
