@@ -12,7 +12,6 @@ const FILES_TO_CACHE = [
 const STATIC_CACHE = "static-cache-1";
 const RUNTIME_CACHE = "runtime-cache";
 
-
 self.addEventListener("install", event => {
     event.waitUntil(
         caches
