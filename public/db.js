@@ -1,13 +1,10 @@
-const { response } = require("express");
-
 let db;
 
 const request = indexedDB.open("budgetDB", 1);
 
 request.onupgradeneeded = event => {
     const db = event.target.result;
-
-    const budgetStore = db.createObjectStore("pending", { autoIncrement: true })
+    db.createObjectStore("pending", { autoIncrement: true })
 };
 
 request.onerror = function (event) {
